@@ -102,7 +102,7 @@ export default function NewsSection() {
         src="/Vector269.png"
         alt=""
         aria-hidden="true"
-        className="pointer-events-none select-none absolute -bottom-px -left-px
+        className="pointer-events-none select-none absolute -bottom-px -left-px h-28
                    w-[260px] sm:w-[320px] md:w-[420px] lg:w-[520px] -z-0"
       />
       {/* kanan-atas (dibalik supaya mengikuti contoh) */}
@@ -110,7 +110,7 @@ export default function NewsSection() {
         src="/Vector269.png"
         alt=""
         aria-hidden="true"
-        className="pointer-events-none select-none absolute -top-px -right-px
+        className="pointer-events-none select-none absolute -top-px -right-px h-28
                    w-[260px] sm:w-[320px] md:w-[420px] lg:w-[520px]
                    rotate-180 transform-gpu -z-0"
       />

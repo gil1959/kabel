@@ -20,11 +20,11 @@ export default function Hero() {
             Platform tempat kita kembali terhubung, berbagi inspirasi, dan membuka peluang baru.
           </h2>
           <p className="mt-3 text-slate-600">
-            Di sini, setiap cerita perjalananmu menjadi bagian dari jaringan yang hidup, saling mendukung, dan terus berkembang. 
+            Di sini, setiap cerita perjalananmu menjadi bagian dari jaringan yang hidup, saling mendukung, dan terus berkembang.
             Mari bersama kita tumbuhkan semangat kolaborasi, karena masa depan yang kuat dimulai dari koneksi yang hangat.
           </p>
           <a
-            href="/masuk"
+            href="/login"
             className="mt-6 inline-flex items-center gap-2 rounded-lg bg-sky-500 px-5 py-2.5 text-white shadow hover:bg-sky-600 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sky-400"
           >
             Masuk

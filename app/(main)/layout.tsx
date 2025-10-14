@@ -1,3 +1,4 @@
+// app/layout.tsx
 import type React from "react"
 import type { Metadata } from "next"
 import { GeistSans } from "geist/font/sans"
@@ -9,17 +10,24 @@ import { SiteFooter } from "@/components/site-footer"
 import { Suspense } from "react"
 
 export const metadata: Metadata = {
-  title: "v0 App",
-  description: "Created with v0",
-  generator: "v0.app",
+  title: "Kabel",
+  description: "website pendataan alumni",
+  generator: "Ragil Kurniawan",
 }
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
+  const isLoggedIn = false
+  const userName = "Randy"
+  const avatarSrc = "/stylized-user-avatar.png"
+
   return (
-    <html lang="id" className={`${GeistSans.variable} ${GeistMono.variable} antialiased`}>
+    <html
+      lang="id"
+      className={`${GeistSans.variable} ${GeistMono.variable} antialiased scroll-smooth scroll-pt-16`}
+    >
       <body className="font-sans bg-background text-foreground">
         <Suspense fallback={<div>Loading...</div>}>
-          <SiteHeader />
+          <SiteHeader isLoggedIn={isLoggedIn} userName={userName} avatarSrc={avatarSrc} />
           <main className="min-h-[calc(100dvh-160px)]">{children}</main>
           <SiteFooter />
           <Analytics />
