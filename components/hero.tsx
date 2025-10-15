@@ -3,23 +3,35 @@ export default function Hero() {
     <section className="bg-white">
       {/* Banner background */}
       <div className="relative overflow-hidden">
+        {/* ✅ background hero */}
         <img
-          src="frame 281.png"
+          src="bghero.png"
           alt="Banner"
-          className="w-full object-cover"
+          className="w-full object-cover h-[340px] md:h-[500px]" // mobile lebih pendek, desktop tetap 500px
         />
-        <div className="absolute inset-0 bg-gradient-to-r from-black/60 via-black/30 to-transparent" />
+
+        {/* ✅ layer depan */}
+        <div className="absolute inset-0 z-10 flex flex-col md:flex-row items-center justify-center gap-4 md:gap-10 mt-8 md:mt-16 px-4">
+          <img
+            src="Group 402.png"
+            alt="Banner"
+            className="w-10/12 md:w-1/2 object-contain mb-2 md:mb-0"
+          />
+          <p className="text-white text-lg md:text-2xl font-bold text-center md:text-left">
+            SELAMAT DATANG DI SISTEM <br className="hidden md:block" />
+            PENDATAAN ALUMNI BERBASIS WEBSITE
+          </p>
+        </div>
       </div>
 
       {/* CONTENT STRIP UNDER BANNER */}
-      <div className="mx-auto grid w-full max-w-6xl grid-cols-1 gap-8 px-6 py-10 md:grid-cols-2 md:py-12">
-
+      <div className="mx-auto grid w-full max-w-6xl grid-cols-1 gap-8 px-4 sm:px-6 py-8 md:grid-cols-2 md:py-12">
         {/* Left copy + CTA */}
         <div>
-          <h2 className="text-xl font-semibold text-slate-900 md:text-2xl">
+          <h2 className="text-lg md:text-2xl font-semibold text-slate-900">
             Platform tempat kita kembali terhubung, berbagi inspirasi, dan membuka peluang baru.
           </h2>
-          <p className="mt-3 text-slate-600">
+          <p className="mt-3 text-slate-600 text-sm md:text-base">
             Di sini, setiap cerita perjalananmu menjadi bagian dari jaringan yang hidup, saling mendukung, dan terus berkembang.
             Mari bersama kita tumbuhkan semangat kolaborasi, karena masa depan yang kuat dimulai dari koneksi yang hangat.
           </p>
@@ -34,17 +46,17 @@ export default function Hero() {
           </a>
         </div>
 
-        {/* Right lightning + slogan (tulisan di tengah petir) */}
+        {/* Right lightning + slogan */}
         <div className="relative flex flex-col items-center justify-center">
           {/* Petir */}
           <img
             src="Vector 332.png"
             alt="Petir Halilintar"
-            className="h-64 w-auto"
+            className="w-auto h-48 md:h-64 object-contain"
           />
 
           {/* Teks di tengah petir */}
-          <h1 className="absolute text-center text-2xl font-extrabold uppercase text-black bg-white">
+          <h1 className="absolute text-center text-base md:text-2xl font-extrabold uppercase text-black bg-white px-2">
             GO HALILINTAR ELEKTRO !
           </h1>
         </div>

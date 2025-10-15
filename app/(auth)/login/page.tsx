@@ -31,12 +31,19 @@ export default function LoginPage() {
   return (
     <div className="relative min-h-screen w-full overflow-hidden bg-[#EAF2FF] grid place-items-center">
       {/* DECORATIVE VECTORS (biarkan sesuai punyamu) */}
-      <img src="/Vector269.png" alt="" aria-hidden
-        className="pointer-events-none select-none absolute -bottom-px -left-px h-28
-                      w-[260px] sm:w-[320px] md:w-[420px] lg:w-[520px] z-10" />
-      <img src="/Vector269.png" alt="" aria-hidden
-        className="pointer-events-none select-none absolute -top-px -right-px h-28
-                      w-[260px] sm:w-[320px] md:w-[420px] lg:w-[520px] rotate-180 transform-gpu z-10" />
+      <img
+        src="/Vector269.png"
+        alt=""
+        aria-hidden
+        className="pointer-events-none select-none absolute -bottom-px -left-px z-10 h-28 w-[520px] hidden md:block"
+      />
+
+      <img
+        src="/Vector269.png"
+        alt=""
+        aria-hidden
+        className="pointer-events-none select-none absolute -top-px -right-px z-10 h-28 w-[520px] rotate-180 transform-gpu hidden md:block"
+      />
 
       <div className="relative mx-auto w-full max-w-[620px] px-4 mt-20">
         {/* ilustrasi di belakang card */}
@@ -107,10 +114,23 @@ export default function LoginPage() {
 
               {/* Buttons (biarkan) */}
               <div className="grid grid-cols-2 gap-4 pt-2">
-                <Button type="button" variant="outline" className="h-10 bg-white text-slate-800 border border-slate-200 hover:bg-slate-50">
-                  <span className="mr-2 inline-flex">{/* Google icon ... */}</span>
-                  Login with Google
+                <Button
+                  type="button"
+                  variant="outline"
+                  className="h-10 px-5 flex items-center justify-center gap-2 rounded-lg border border-slate-300 bg-white hover:bg-slate-50 transition"
+                  aria-label="Login dengan Google"
+                >
+                  <img
+                    src="logogoogle.png" // pastikan logo ada di folder /public
+                    alt="Google"
+                    className="h-5 w-5 object-contain"
+                  />
+                  {/* ✅ teks hanya tampil mulai sm ke atas */}
+                  <span className="hidden sm:inline text-sm font-medium text-slate-700">
+                    Login with Google
+                  </span>
                 </Button>
+
                 <Button type="submit" className="h-10 rounded-lg bg-[#58A8FF] hover:bg-[#4b9dff] text-white shadow">
                   Login
                 </Button>

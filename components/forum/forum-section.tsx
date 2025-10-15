@@ -24,23 +24,23 @@ function AskForm() {
         <img
           src={(user as any)?.avatar || "/stylized-user-avatar.png"}
           alt={user.name}
-          className="w-9 h-9 rounded-full object-cover"
+          className="h-9 w-9 rounded-full object-cover sm:h-10 sm:w-10"
         />
 
         <form
           onSubmit={(e) => e.preventDefault()}
-          className="relative flex-1"
+          className="relative flex-1 min-w-0"
         >
           <input
             type="text"
             placeholder="Apa yang ingin Anda tanyakan?"
-            className="w-full h-12 rounded-lg border border-[#D7DEEA] bg-white px-4 pr-10 text-[15px] placeholder:text-slate-500 focus:outline-none focus:ring-2 focus:ring-[#AFC8FF]"
+            className="w-full h-11 rounded-lg border border-[#D7DEEA] bg-white px-3 pr-10 text-[15px] placeholder:text-slate-500 focus:outline-none focus:ring-2 focus:ring-[#AFC8FF] sm:h-12 sm:px-4"
           />
 
           {/* tombol upload gambar di kanan */}
           <label
             htmlFor="ask-image"
-            className="absolute right-2 top-1/2 -translate-y-1/2 grid place-items-center w-8 h-8 rounded-md text-[#5B6B8C] hover:bg-slate-100 cursor-pointer"
+            className="absolute right-2 top-1/2 -translate-y-1/2 grid place-items-center h-8 w-8 rounded-md text-[#5B6B8C] hover:bg-slate-100 cursor-pointer"
             title="Unggah gambar"
           >
             <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
@@ -72,38 +72,40 @@ function Question({
   showReplies?: boolean
 }) {
   return (
-    <article className="py-10">
-      {/* Header */}
+    <article className="py-8 sm:py-10">
+      {/* Header judul */}
       <div className="flex items-start justify-between gap-3">
-        <h3 className="text-3xl md:text-4xl font-extrabold text-brand leading-snug">
+        <h3 className="text-2xl font-extrabold leading-snug text-brand sm:text-3xl md:text-4xl">
           {title}
         </h3>
       </div>
 
-      <div className="flex justify-between">
-        {/* stats header (tanpa titik, berjarak) */}
-        <div className="mt-1">
-          <p className="mt-2 flex items-center gap-6 text-xs text-foreground/60">
+      {/* Meta (stats + author) */}
+      <div className="mt-3 flex flex-col-reverse items-start justify-between gap-3 sm:flex-row sm:items-center">
+        {/* stats header */}
+        <div className="mt-1 w-full sm:w-auto">
+          <p className="mt-1 flex flex-wrap items-center gap-x-5 gap-y-1 text-xs text-foreground/60 sm:text-[13px]">
             {stats.split(/·|\s{2,}/).map((item, i) => (
               <span key={i}>{item.trim()}</span>
             ))}
           </p>
         </div>
 
+        {/* author */}
         <div className="flex items-center gap-2 text-sm text-foreground/70">
-          <img src={avatar} alt={author} className="w-8 h-8 rounded-full object-cover" />
-          <p className="whitespace-nowrap">
-            From: <span className="text-[#0041C2] font-bold">{author}</span>
+          <img src={avatar} alt={author} className="h-8 w-8 rounded-full object-cover sm:h-9 sm:w-9" />
+          <p className="whitespace-nowrap text-[13px] sm:text-sm">
+            From: <span className="font-bold text-[#0041C2]">{author}</span>
           </p>
         </div>
       </div>
 
       {/* Bar "Jawaban (x)" */}
       <div className="mt-5">
-        <div className="bg-[#E9EEFF] rounded-lg py-2 flex items-center justify-center text-sm text-foreground/70 font-medium">
+        <div className="flex items-center justify-center rounded-lg bg-[#E9EEFF] py-2 text-xs font-medium text-foreground/70 sm:text-sm">
           <span className="flex items-center gap-1">
             Jawaban ({answers.length})
-            <svg xmlns="http://www.w3.org/2000/svg" className="w-4 h-4 text-foreground/60" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+            <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 text-foreground/60" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
               <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
             </svg>
           </span>
@@ -111,25 +113,27 @@ function Question({
       </div>
 
       {/* List jawaban */}
-      <div className="px-4 py-5 space-y-8">
+      <div className="space-y-6 px-1 py-5 sm:space-y-8 sm:px-2">
         {answers.map((a, i) => (
-          <div key={i} className={showReplies && i > 0 ? "pl-12" : ""}>
+          <div key={i} className={showReplies && i > 0 ? "md:pl-12" : ""}>
             <div className="flex items-start gap-3">
-              <img src={a.avatar} alt={a.author} className="w-10 h-10 rounded-full object-cover" />
-              <div className="flex-1">
-                <p className="font-semibold text-foreground leading-snug">{a.author}</p>
-                <p className="mt-1 text-foreground/80 leading-relaxed">{a.body}</p>
+              <img src={a.avatar} alt={a.author} className="h-10 w-10 rounded-full object-cover sm:h-11 sm:w-11" />
+              <div className="flex-1 min-w-0">
+                <p className="leading-snug font-semibold text-foreground text-sm sm:text-[15px]">{a.author}</p>
+                <p className="mt-1 leading-relaxed text-foreground/80 text-[13.5px] sm:text-sm">
+                  {a.body}
+                </p>
 
-                <div className="mt-2 flex items-center gap-6 text-xs text-foreground/60">
+                <div className="mt-2 flex flex-wrap items-center gap-x-6 gap-y-1 text-xs text-foreground/60">
                   {a.stats.split(/·|\s{2,}/).map((item, j) => (
                     <span key={j}>{item.trim()}</span>
                   ))}
                 </div>
 
                 {showReplies && i === 0 && (
-                  <div className="mt-3 pl-12">
-                    <div className="flex items-center gap-3 text-sm">
-                      <span className="h-px bg-border w-[90px]" />
+                  <div className="mt-3 md:pl-12">
+                    <div className="flex items-center gap-3 text-[13px] sm:text-sm">
+                      <span className="h-px w-[60px] bg-border sm:w-[90px]" />
                       <button type="button" className="text-foreground/70 hover:text-brand">
                         Lihat Balasan (15)
                       </button>
@@ -147,7 +151,7 @@ function Question({
         src="/Frame%20367.png"
         alt=""
         aria-hidden
-        className="w-full h-[20px] object-cover mt-6"
+        className="mt-6 h-4 w-full object-cover"
       />
     </article>
   )
@@ -155,9 +159,9 @@ function Question({
 
 export function ForumSection() {
   return (
-    <section className="py-10">
-      <div className="mx-auto max-w-6xl px-4">
-        <h2 className="text-xl md:text-2xl font-semibold mb-6">FORUM ALUMNI</h2>
+    <section className="py-8 sm:py-10">
+      <div className="mx-auto max-w-6xl px-4 sm:px-5 md:px-6">
+        <h2 className="mb-6 text-lg font-semibold sm:text-xl md:text-2xl">FORUM ALUMNI</h2>
 
         {/* Form tanya – hanya muncul saat user login */}
         <AskForm />
@@ -215,9 +219,9 @@ export function ForumSection() {
           ].map((q) => (
             <div
               key={q}
-              className="flex font-bold items-center justify-between border-b border-border py-3 hover:bg-muted/10 transition-colors cursor-pointer"
+              className="flex cursor-pointer items-center justify-between border-b border-border py-3 font-bold transition-colors hover:bg-muted/10"
             >
-              <span className="text-brand hover:underline text-base">{q}</span>
+              <span className="text-base text-brand hover:underline">{q}</span>
               <span className="text-xl text-foreground/50">›</span>
             </div>
           ))}

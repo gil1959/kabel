@@ -16,65 +16,65 @@ const latest = [
 
 export default function DasborPage() {
   return (
-    <div className="mx-auto max-w-6xl px-4 py-8 md:py-10 space-y-6">
+    <div className="mx-auto max-w-6xl px-3 sm:px-4 py-6 md:py-10 space-y-5 md:space-y-6">
       {/* ROW 1: 2 charts */}
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-3 sm:gap-4 md:gap-6">
         <Card className="shadow-card border border-[#E6EEFF] rounded-xl">
-          <CardHeader className="py-3">
-            <CardTitle className="text-[12px] font-medium text-slate-700">
+          <CardHeader className="py-2.5 md:py-3 px-3 md:px-4">
+            <CardTitle className="text-[12px] md:text-[12px] font-medium text-slate-700">
               Jumlah Anggota Per-Angkatan
             </CardTitle>
           </CardHeader>
-          <CardContent className="pb-5">
+          <CardContent className="pb-4 md:pb-5 px-2 md:px-4">
             <MembersBarChart />
           </CardContent>
         </Card>
 
         <Card className="shadow-card border border-[#E6EEFF] rounded-xl">
-          <CardHeader className="py-3">
-            <CardTitle className="text-[12px] font-medium text-slate-700">
+          <CardHeader className="py-2.5 md:py-3 px-3 md:px-4">
+            <CardTitle className="text-[12px] md:text-[12px] font-medium text-slate-700">
               Jumlah Anggota Per-Daerah
             </CardTitle>
           </CardHeader>
-          <CardContent className="pb-5">
+          <CardContent className="pb-4 md:pb-5 px-2 md:px-4">
             <MembersBarChart />
           </CardContent>
         </Card>
       </div>
 
       {/* ROW 2: big chart (span-2) + stats (stacked) */}
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6">
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-3 sm:gap-4 md:gap-6">
         <Card className="md:col-span-2 shadow-card border border-[#E6EEFF] rounded-xl">
-          <CardHeader className="py-3">
-            <CardTitle className="text-[12px] font-medium text-slate-700">
+          <CardHeader className="py-2.5 md:py-3 px-3 md:px-4">
+            <CardTitle className="text-[12px] md:text-[12px] font-medium text-slate-700">
               Karier & Pekerjaan
             </CardTitle>
           </CardHeader>
-          <CardContent className="pb-5">
+          <CardContent className="pb-4 md:pb-5 px-2 md:px-4">
             <MembersBarChart />
           </CardContent>
         </Card>
 
-        <div className="grid gap-4">
+        <div className="grid gap-3 sm:gap-4">
           <Card className="shadow-card border border-[#E6EEFF] rounded-xl">
-            <CardHeader className="py-3">
-              <CardTitle className="text-[12px] font-medium text-slate-700">
+            <CardHeader className="py-2.5 md:py-3 px-3 md:px-4">
+              <CardTitle className="text-[12px] md:text-[12px] font-medium text-slate-700">
                 Jumlah Anggota
               </CardTitle>
             </CardHeader>
-            <CardContent className="py-6">
-              <p className="text-5xl font-semibold text-[#2D6BFF] leading-none text-right">3.112</p>
+            <CardContent className="py-5 md:py-6 px-3 md:px-4">
+              <p className="text-4xl md:text-5xl font-semibold text-[#2D6BFF] leading-none text-right">3.112</p>
             </CardContent>
           </Card>
 
           <Card className="shadow-card border border-[#E6EEFF] rounded-xl">
-            <CardHeader className="py-3">
-              <CardTitle className="text-[12px] font-medium text-slate-700">
+            <CardHeader className="py-2.5 md:py-3 px-3 md:px-4">
+              <CardTitle className="text-[12px] md:text-[12px] font-medium text-slate-700">
                 Jumlah Angkatan Aktif
               </CardTitle>
             </CardHeader>
-            <CardContent className="py-6">
-              <p className="text-5xl font-semibold text-[#2D6BFF] leading-none text-right">45</p>
+            <CardContent className="py-5 md:py-6 px-3 md:px-4">
+              <p className="text-4xl md:text-5xl font-semibold text-[#2D6BFF] leading-none text-right">45</p>
             </CardContent>
           </Card>
         </div>
@@ -82,33 +82,54 @@ export default function DasborPage() {
 
       {/* TABLE */}
       <Card className="shadow-card border border-[#E6EEFF] rounded-xl overflow-hidden">
-        <div className="bg-[#E9EEFF] px-4 py-3 border-b border-[#E6EEFF]">
-          <h3 className="text-[13px] font-medium text-slate-800">Terakhir Terdaftar</h3>
+        <div className="bg-[#E9EEFF] px-3 md:px-4 py-2.5 md:py-3 border-b border-[#E6EEFF]">
+          <h3 className="text-[12.5px] md:text-[13px] font-medium text-slate-800">Terakhir Terdaftar</h3>
         </div>
-        <CardContent className="p-0">
-          <table className="w-full text-[13px]">
-            <thead>
-              <tr className="text-left text-slate-600">
-                <th className="px-4 py-3 font-semibold">Nama</th>
-                <th className="px-4 py-3 font-semibold">Angkatan</th>
-                <th className="px-4 py-3 font-semibold">Pekerjaan</th>
-                <th className="px-4 py-3 font-semibold">Kontak</th>
-              </tr>
-            </thead>
-            <tbody>
-              {latest.map((r, i) => (
-                <tr key={r.nama} className="border-t border-[#E9EDF8] hover:bg-[#F7FAFF]">
-                  <td className="px-4 py-3">{r.nama}</td>
-                  <td className="px-4 py-3">{r.angkatan}</td>
-                  <td className="px-4 py-3">{r.pekerjaan}</td>
-                  <td className="px-4 py-3">{r.kontak}</td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
 
-          {/* table footer / pagination bar */}
-          <div className="flex flex-col md:flex-row items-center justify-between gap-3 px-4 py-3 border-t border-[#E9EDF8] bg-white">
+        <CardContent className="p-0">
+          {/* ⬇️ Wrapper scroll untuk mobile/tablet */}
+          <div className="-mx-4 px-4 md:mx-0 md:px-0 overflow-x-auto">
+            <table className="w-full min-w-[720px] md:min-w-0 table-fixed text-[12.5px] md:text-[13px]">
+              {/* atur lebar kolom biar nggak mepet di HP */}
+              <colgroup>
+                <col className="w-[40%] md:w-auto" />
+                <col className="w-[18%] md:w-auto" />
+                <col className="w-[26%] md:w-auto" />
+                <col className="w-[16%] md:w-auto" />
+              </colgroup>
+
+              <thead>
+                <tr className="text-left text-slate-600">
+                  <th className="px-3 md:px-4 py-2.5 md:py-3 font-semibold">Nama</th>
+                  <th className="px-3 md:px-4 py-2.5 md:py-3 font-semibold">Angkatan</th>
+                  <th className="px-3 md:px-4 py-2.5 md:py-3 font-semibold">Pekerjaan</th>
+                  <th className="px-3 md:px-4 py-2.5 md:py-3 font-semibold whitespace-nowrap">Kontak</th>
+                </tr>
+              </thead>
+
+              <tbody>
+                {latest.map((r) => (
+                  <tr key={r.nama} className="border-t border-[#E9EDF8] hover:bg-[#F7FAFF]">
+                    <td className="px-3 md:px-4 py-2.5 md:py-3 truncate">
+                      {r.nama}
+                    </td>
+                    <td className="px-3 md:px-4 py-2.5 md:py-3">
+                      {r.angkatan}
+                    </td>
+                    <td className="px-3 md:px-4 py-2.5 md:py-3 truncate">
+                      {r.pekerjaan}
+                    </td>
+                    <td className="px-3 md:px-4 py-2.5 md:py-3 whitespace-nowrap">
+                      {r.kontak}
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+
+          {/* footer / pagination */}
+          <div className="flex flex-col md:flex-row items-center justify-between gap-3 px-3 md:px-4 py-3 border-t border-[#E9EDF8] bg-white">
             <p className="text-[12px] text-slate-500">
               Menampilkan 10 entri • Data fiktif
             </p>
@@ -121,7 +142,7 @@ export default function DasborPage() {
                 <option>50</option>
               </select>
 
-              <nav className="ml-2 flex items-center gap-1">
+              <nav className="ml-1 md:ml-2 flex items-center gap-1">
                 <button className="h-8 min-w-8 rounded border border-[#DDE6FF] text-[12px] px-2">‹</button>
                 <button className="h-8 min-w-8 rounded border border-[#2D6BFF] bg-[#2D6BFF] text-white text-[12px]">1</button>
                 <button className="h-8 min-w-8 rounded border border-[#DDE6FF] text-[12px]">2</button>
@@ -134,6 +155,7 @@ export default function DasborPage() {
           </div>
         </CardContent>
       </Card>
+
     </div>
   )
 }
