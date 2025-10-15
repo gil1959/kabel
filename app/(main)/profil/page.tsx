@@ -14,6 +14,7 @@ export default function ProfilPage() {
   const router = useRouter()
   const { logout } = useAuth()
 
+  // simpan/restore (optional)
   useEffect(() => {
     const saved = localStorage.getItem("kabel_avatar")
     if (saved) setAvatarUrl(saved)
@@ -44,82 +45,15 @@ export default function ProfilPage() {
   }
 
   return (
-    <section className="bg-[#EAF2FF]">
-      {/* container: mobile stack, desktop 2 kolom */}
-      <div className="mx-auto max-w-6xl px-3 sm:px-4 py-8 md:py-10 gap-4 md:gap-6 grid md:grid-cols-[280px,1fr]">
-        {/* ==== Main (mobile tampil dulu) ==== */}
-        <div className="order-1 md:order-none flex flex-col">
-          {/* Header profil */}
-          <Card className="rounded-xl bg-[#EAF2FF] border-0 shadow-none">
-            <CardContent className="p-4 md:p-6">
-              <div className="flex flex-col sm:flex-row gap-4 sm:gap-5 md:items-start">
-                {/* Avatar */}
-                <div className="flex items-center gap-4">
-                  <img
-                    src={avatarUrl}
-                    alt="Foto profil"
-                    className="rounded-full bg-[#CDDEFF] object-cover h-24 w-24 md:h-30 md:w-30"
-                  />
-                </div>
-
-                {/* Upload + hint */}
-                <div className="flex flex-col gap-3 justify-center">
-                  <div>
-                    <input
-                      ref={fileRef}
-                      type="file"
-                      accept="image/*"
-                      className="hidden"
-                      onChange={onPick}
-                    />
-                    <Button
-                      type="button"
-                      variant="outline"
-                      onClick={openPicker}
-                      className="h-9 gap-2 rounded-md border-[#D7E2FF] bg-white text-[#2F80ED] hover:bg-[#2F80ED] hover:text-white"
-                    >
-                      <IconUpload className="h-4 w-4" />
-                      Upload Foto
-                    </Button>
-                  </div>
-                  <p className="text-[13px] md:text-sm leading-relaxed text-[#64748B]">
-                    Foto profil dan avatar dapat dilihat oleh semua orang di dalam platform
-                  </p>
-                </div>
-              </div>
-            </CardContent>
-          </Card>
-
-          {/* Info personal */}
-          <Card className="mt-4 md:mt-6 rounded-xl border-0 bg-white shadow-[0_8px_24px_rgba(16,24,40,0.04)]">
-            <CardContent className="p-4 md:p-6">
-              <h3 className="mb-4 text-[15px] md:text-base font-semibold text-[#0F172A]">Info Personal</h3>
-
-              <div className="grid gap-y-4 gap-x-6 sm:gap-y-5 sm:gap-x-8 md:grid-cols-2">
-                <Field label="Nama Lengkap" value="Randy Dwi Pranaputra" />
-                <Field label="Angkatan" value="2005" />
-                <Field label="Perusahaan" value="-" />
-                <Field label="Jabatan" value="-" />
-                <Field label="Kontak" value="0812 9294 1805" />
-                <Field label="Email" value="Randy@gmail.com" />
-                <Field label="LinkedIn" value="Randy Dwi P" />
-              </div>
-
-              <a
-                href="#"
-                className="mt-5 inline-flex items-center text-sm text-[#2F80ED] hover:underline"
-              >
-                Lihat angkatan bersama <span className="ml-1">›</span>
-              </a>
-            </CardContent>
-          </Card>
-        </div>
-
-        {/* ==== Sidebar (turun ke bawah di mobile) ==== */}
-        <aside className="order-2 md:order-none">
+    <section className="bg-[#EAF2FF] ">
+      {/* ⬇️ Mobile/tablet: stack kolom; Desktop: tetap seperti semula */}
+      <div className="mx-auto max-w-6xl px-3 sm:px-4 py-8 md:py-10 justify-center gap-4 md:gap-6 flex flex-col md:flex-row md:grid-cols-[280px,1fr]">
+        {/* ==== Sidebar ==== */}
+        <aside className="md:mr-0">
           <Card className="rounded-xl border-0 bg-white shadow-[0_8px_24px_rgba(16,24,40,0.04)]">
             <CardContent className="p-0">
-              <nav className="text-[14px] sm:text-[15px] p-4 sm:p-5 sm:py-[35px]">
+              {/* ⬇️ Padding & font lebih rapat di mobile, desktop tetap */}
+              <nav className="text-[14px] sm:text-[15px] p-4 sm:p-5 py-6 sm:py-[35px]">
                 {/* Profil */}
                 <div className="px-3 sm:px-5 py-3 sm:py-4 font-medium text-[#0F172A]">Profil</div>
                 <ul className="px-1 sm:px-2">
@@ -158,15 +92,84 @@ export default function ProfilPage() {
             </CardContent>
           </Card>
         </aside>
+
+        {/* ==== Main ==== */}
+        <div className="flex flex-col">
+          {/* Header profil */}
+          <Card className="rounded-xl bg-[#EAF2FF] border-0 shadow-none">
+            {/* ⬇️ Tambah padding di mobile; desktop tetap md:p-6 */}
+            <CardContent className="p-4 md:p-6">
+              {/* ⬇️ Mobile: kolom; Tablet/Desktop: row, sama seperti punyamu */}
+              <div className="flex flex-col sm:flex-row gap-4 sm:gap-5 md:items-start">
+                {/* Avatar */}
+                <div className="flex items-center gap-4">
+                  <img
+                    src={avatarUrl}
+                    alt="Foto profil"
+                    className="rounded-full bg-[#CDDEFF] object-cover h-24 w-24 md:h-30 md:w-30"
+                  />
+                </div>
+
+                {/* Upload + hint */}
+                <div className="flex flex-col gap-3 justify-center">
+                  <div>
+                    <input
+                      ref={fileRef}
+                      type="file"
+                      accept="image/*"
+                      className="hidden"
+                      onChange={onPick}
+                    />
+
+                    <Button
+                      type="button"
+                      variant="outline"
+                      onClick={openPicker}
+                      className="h-9 gap-2 rounded-md border-[#D7E2FF] bg-white text-[#2F80ED] hover:bg-[#2F80ED] hover:text-white"
+                    >
+                      <IconUpload className="h-4 w-4" />
+                      Upload Foto
+                    </Button>
+                  </div>
+                  {/* ⬇️ Ukuran teks sedikit dikecilkan di mobile */}
+                  <p className="text-[13px] md:text-sm leading-relaxed text-[#64748B]">
+                    Foto profil dan avatar dapat dilihat oleh semua orang di dalam platform
+                  </p>
+                </div>
+              </div>
+            </CardContent>
+          </Card>
+
+          {/* Info personal */}
+          <Card className="mt-4 md:mt-0 rounded-xl border-0 bg-white shadow-[0_8px_24px_rgba(16,24,40,0.04)]">
+            <CardContent className="p-4 md:p-6">
+              <h3 className="mb-4 text-[15px] md:text-base font-semibold text-[#0F172A]">Info Personal</h3>
+
+              {/* ⬇️ Mobile: 1 kolom; Desktop: tetap 2 kolom */}
+              <div className="grid gap-y-4 gap-x-6 sm:gap-y-5 sm:gap-x-8 md:grid-cols-2">
+                <Field label="Nama Lengkap" value="Randy Dwi Pranaputra" />
+                <Field label="Angkatan" value="2005" />
+                <Field label="Perusahaan" value="-" />
+                <Field label="Jabatan" value="-" />
+                <Field label="Kontak" value="0812 9294 1805" />
+                <Field label="Email" value="Randy@gmail.com" />
+                <Field label="LinkedIn" value="Randy Dwi P" />
+              </div>
+
+              <a
+                href="#"
+                className="mt-5 inline-flex items-center text-sm font-medium text-[#2F80ED] hover:underline"
+              >
+                Lihat angkatan bersama <span className="ml-1">›</span>
+              </a>
+            </CardContent>
+          </Card>
+        </div>
       </div>
 
       {/* Modal konfirmasi keluar */}
       {openLogout && (
-        <div
-          role="dialog"
-          aria-modal="true"
-          className="fixed inset-0 z-50 grid place-items-center bg-black/40 p-4"
-        >
+        <div role="dialog" aria-modal="true" className="fixed inset-0 z-50 grid place-items-center bg-black/40 p-4">
           <div className="w-full max-w-sm rounded-xl bg-white p-5 md:p-6 shadow-lg">
             <p className="text-center font-medium">Yakin ingin keluar?</p>
             <div className="mt-5 flex justify-center gap-3">
@@ -200,10 +203,11 @@ function SidebarItem({
 }) {
   return (
     <li>
+      {/* ⬇️ Mobile font sedikit lebih kecil; desktop tetap */}
       <button
         type="button"
         onClick={onClick}
-        className="flex w-full items-center gap-3 rounded-md px-3 sm:px-3 py-2.5 text-left text-[14px] sm:text-[15px] text-[#0F172A] hover:bg-[#F4F7FF]"
+        className="flex w-full items-center gap-3 rounded-md px-3 py-2.5 text-left text-[14px] sm:text-[15px] text-[#0F172A] hover:bg-[#F4F7FF]"
       >
         <Icon className="h-4 w-4 text-[#0F172A]" />
         <span className="truncate">{label}</span>
