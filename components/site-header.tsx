@@ -1,10 +1,11 @@
 "use client"
+
 import Link from "next/link"
 import { useEffect, useState } from "react"
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
 import { usePathname } from "next/navigation"
 import { cn } from "@/lib/utils"
-
+import { useAuth } from "./auth-provider"
 const navPrivate = [
   { href: "/dasbor", label: "Dasbor" },
   { href: "/berita", label: "Berita" },
@@ -12,53 +13,40 @@ const navPrivate = [
   { href: "/kartu-alumni", label: "Kartu Alumni" },
   { href: "/keuangan", label: "Keuangan" },
 ]
-
-// PUBLIC pakai anchor ke homepage
 const navPublic = [
   { href: "/#beranda", label: "Beranda", hash: "#beranda" },
   { href: "/#berita", label: "Berita", hash: "#berita" },
   { href: "/#forum", label: "Forum", hash: "#forum" },
 ]
 
-type Props = {
-  isLoggedIn?: boolean
-  userName?: string
-  avatarSrc?: string
-}
-
-export function SiteHeader({
-  isLoggedIn = false,
-  userName = "Randy",
-  avatarSrc = "/stylized-user-avatar.png",
-}: Props) {
+export function SiteHeader() {
+  const { user } = useAuth()
   const pathname = usePathname()
+
+  // ⬇️ Tambah flag mount agar SSR dan client pertama kali konsisten
+  const [mounted, setMounted] = useState(false)
+  useEffect(() => { setMounted(true) }, [])
+
+  // Saat belum mounted, pakai asumsi "belum login" supaya cocok dengan SSR
+  const isLoggedIn = mounted ? !!user : false
+  const userName = mounted ? (user?.name ?? "Randy") : "Randy"
+
   const menu = isLoggedIn ? navPrivate : navPublic
 
-  // Track hash HANYA untuk public (anchor). Default aktif "beranda" kalau memang di "/".
+  // Hash untuk anchor di homepage (hanya setelah mounted)
   const [currentHash, setCurrentHash] = useState<string>("")
   useEffect(() => {
-    const init = () => {
-      if (typeof window === "undefined") return
-      // Jika bukan homepage, jangan aktifkan apa pun untuk anchor
-      if (pathname !== "/") {
-        setCurrentHash("")
-      } else {
-        setCurrentHash(window.location.hash || "#beranda")
-      }
-    }
-    init()
-    const onHash = () => setCurrentHash(window.location.hash || "#beranda")
-    window.addEventListener("hashchange", onHash)
-    return () => window.removeEventListener("hashchange", onHash)
-  }, [pathname])
+    if (!mounted) return
+    if (pathname !== "/") { setCurrentHash(""); return }
+    const set = () => setCurrentHash(window.location.hash || "#beranda")
+    set()
+    window.addEventListener("hashchange", set)
+    return () => window.removeEventListener("hashchange", set)
+  }, [mounted, pathname])
 
-  // Tentukan link aktif
   const isActive = (href: string, hash?: string) => {
-    if (isLoggedIn) {
-      // aktif untuk route saat ini (termasuk subpath)
-      return pathname === href || pathname.startsWith(href + "/")
-    }
-    // Public/anchor: hanya aktif di homepage dan hash cocok
+    if (!mounted) return false // hindari perbedaan atribut saat SSR
+    if (isLoggedIn) return pathname === href || pathname.startsWith(href + "/")
     if (pathname !== "/") return false
     return !!hash && (currentHash === hash || (!currentHash && hash === "#beranda"))
   }
@@ -66,7 +54,6 @@ export function SiteHeader({
   return (
     <header className="sticky top-0 z-40 bg-white/90 backdrop-blur border-b border-border">
       <div className="mx-auto max-w-6xl px-4 md:pr-8 h-16 flex items-center">
-        {/* LOGO: (biarkan sesuai punyamu) */}
         <Link href="/" className="flex items-center gap-2">
           <img src="/logo1.png" alt="KABeL" className="h-8 w-auto" />
           <img src="/logo2.png" alt="KABeL" className="h-8 w-auto" />
@@ -80,7 +67,8 @@ export function SiteHeader({
                 <Link
                   key={n.href}
                   href={n.href}
-                  aria-current={active ? "page" : undefined}
+                  // ⬇️ hanya set aria-current setelah mounted
+                  aria-current={mounted && active ? "page" : undefined}
                   className={cn(
                     "transition-colors hover:text-[#518CFF]",
                     active ? "text-[#518CFF] font-medium" : "text-foreground/80"
@@ -96,7 +84,7 @@ export function SiteHeader({
             <div className="hidden md:flex items-center gap-3">
               <span className="text-sm text-foreground/80">Hi, {userName}</span>
               <Avatar className="size-8">
-                <AvatarImage src={avatarSrc} alt="Avatar" />
+                <AvatarImage src="/stylized-user-avatar.png" alt="Avatar" />
                 <AvatarFallback>{userName.slice(0, 2).toUpperCase()}</AvatarFallback>
               </Avatar>
             </div>

@@ -8,6 +8,7 @@ import "./globals.css"
 import { SiteHeader } from "@/components/site-header"
 import { SiteFooter } from "@/components/site-footer"
 import { Suspense } from "react"
+import { AuthProvider } from "@/components/auth-provider"
 
 export const metadata: Metadata = {
   title: "Kabel",
@@ -26,12 +27,14 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
       className={`${GeistSans.variable} ${GeistMono.variable} antialiased scroll-smooth scroll-pt-16`}
     >
       <body className="font-sans bg-background text-foreground">
-        <Suspense fallback={<div>Loading...</div>}>
-          <SiteHeader isLoggedIn={isLoggedIn} userName={userName} avatarSrc={avatarSrc} />
-          <main className="min-h-[calc(100dvh-160px)]">{children}</main>
-          <SiteFooter />
-          <Analytics />
-        </Suspense>
+        <AuthProvider>
+          <Suspense fallback={<div>Loading...</div>}>
+            <SiteHeader />
+            <main className="min-h-[calc(100dvh-160px)]">{children}</main>
+            <SiteFooter />
+            <Analytics />
+          </Suspense>
+        </AuthProvider>
       </body>
     </html>
   )
