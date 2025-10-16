@@ -30,6 +30,13 @@ export default function LoginPage() {
 
   return (
     <div className="relative min-h-screen w-full overflow-hidden bg-[#EAF2FF] grid place-items-center">
+      <div className="absolute left-28 top-3 sm:left-6 sm:top-4 z-20 flex items-center gap-3">
+        <img src="/logo1.png" alt="KABeL" className="h-7 sm:h-8 w-auto" />
+        <img src="/logo2.png" alt="KABeL" className="h-7 sm:h-8 w-auto" />
+      </div>
+
+
+
       {/* DECORATIVE VECTORS (biarkan sesuai punyamu) */}
       <img
         src="/Vector269.png"
@@ -45,16 +52,21 @@ export default function LoginPage() {
         className="pointer-events-none select-none absolute -top-px -right-px z-10 h-28 w-[520px] rotate-180 transform-gpu hidden md:block"
       />
 
-      <div className="relative mx-auto w-full max-w-[620px] px-4 mt-20">
+      <div className="relative mx-auto w-full max-w-[620px]  px-4 mt-20">
         {/* ilustrasi di belakang card */}
         <img
           src="/Group 402.png"
           alt="Ilustrasi alumni"
-          className="pointer-events-none select-none absolute -top-36 left-1/2 -translate-x-1/2
-                     h-[240px] w-auto object-contain z-0 drop-shadow-sm"
+          className="
+          pointer-events-none select-none
+          absolute mt-10 -top-36 inset-x-0
+          w-[98%] h-[300px]
+          object-cover object-top     
+          z-0 drop-shadow-sm
+          "
         />
         {/* CARD (desain tetap) */}
-        <Card className="relative z-10 rounded-xl border-0 bg-[#CDDEFF] shadow-[0_10px_30px_rgba(0,0,0,0.08)]">
+        <Card className="relative z-10 mt-[150px] h-[350px] rounded-xl border-0 bg-[#CDDEFF] shadow-[0_10px_30px_rgba(0,0,0,0.08)]">
           <CardContent className="p-6 md:p-8">
             <form className="grid gap-4" onSubmit={onSubmit}>
               {/* Email */}

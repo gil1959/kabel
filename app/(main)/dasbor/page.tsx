@@ -16,65 +16,67 @@ const latest = [
 
 export default function DasborPage() {
   return (
-    <div className="mx-auto max-w-6xl px-3 sm:px-4 py-6 md:py-10 space-y-5 md:space-y-6">
+    <div className="mx-auto max-w-6xl px-3 sm:px-4 py-6 md:py-10 space-y-5 md:space-y-6 flex flex-col">
       {/* ROW 1: 2 charts */}
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-3 sm:gap-4 md:gap-6">
-        <Card className="shadow-card border border-[#E6EEFF] rounded-xl">
-          <CardHeader className="py-2.5 md:py-3 px-3 md:px-4">
-            <CardTitle className="text-[12px] md:text-[12px] font-medium text-slate-700">
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6">
+
+        {/* Row 1 - Left: span 2 kolom */}
+        <Card className="md:col-span-2 rounded-xl border border-[#E6EEFF] shadow-card">
+          <CardHeader className="py-3 px-4">
+            <CardTitle className="text-[12px] font-medium text-slate-700">
               Jumlah Anggota Per-Angkatan
             </CardTitle>
           </CardHeader>
-          <CardContent className="pb-4 md:pb-5 px-2 md:px-4">
+          <CardContent className="px-4 pb-4">
             <MembersBarChart />
           </CardContent>
         </Card>
 
-        <Card className="shadow-card border border-[#E6EEFF] rounded-xl">
-          <CardHeader className="py-2.5 md:py-3 px-3 md:px-4">
-            <CardTitle className="text-[12px] md:text-[12px] font-medium text-slate-700">
+        {/* Row 1 - Right */}
+        <Card className="rounded-xl border border-[#E6EEFF] shadow-card">
+          <CardHeader className="py-3 px-4">
+            <CardTitle className="text-[12px] font-medium text-slate-700">
               Jumlah Anggota Per-Daerah
             </CardTitle>
           </CardHeader>
-          <CardContent className="pb-4 md:pb-5 px-2 md:px-4">
+          <CardContent className="px-4 pb-4">
             <MembersBarChart />
           </CardContent>
         </Card>
-      </div>
 
-      {/* ROW 2: big chart (span-2) + stats (stacked) */}
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-3 sm:gap-4 md:gap-6">
-        <Card className="md:col-span-2 shadow-card border border-[#E6EEFF] rounded-xl">
-          <CardHeader className="py-2.5 md:py-3 px-3 md:px-4">
-            <CardTitle className="text-[12px] md:text-[12px] font-medium text-slate-700">
+        {/* Row 2 - Left: span 2 kolom (=> lebarnya PERSIS sama dgn kartu atas-kiri) */}
+        <Card className="md:col-span-2 rounded-xl border border-[#E6EEFF] shadow-card">
+          <CardHeader className="py-3 px-4">
+            <CardTitle className="text-[12px] font-medium text-slate-700">
               Karier & Pekerjaan
             </CardTitle>
           </CardHeader>
-          <CardContent className="pb-4 md:pb-5 px-2 md:px-4">
+          <CardContent className="px-4 pb-4">
             <MembersBarChart />
           </CardContent>
         </Card>
 
-        <div className="grid gap-3 sm:gap-4">
-          <Card className="shadow-card border border-[#E6EEFF] rounded-xl">
-            <CardHeader className="py-2.5 md:py-3 px-3 md:px-4">
-              <CardTitle className="text-[12px] md:text-[12px] font-medium text-slate-700">
+        {/* Row 2 - Right: 2 kartu angka ditumpuk */}
+        <div className="grid gap-4 md:gap-6">
+          <Card className="rounded-xl border border-[#E6EEFF] shadow-card">
+            <CardHeader className="py-3 px-4">
+              <CardTitle className="text-[12px] font-medium text-slate-700">
                 Jumlah Anggota
               </CardTitle>
             </CardHeader>
-            <CardContent className="py-5 md:py-6 px-3 md:px-4">
-              <p className="text-4xl md:text-5xl font-semibold text-[#2D6BFF] leading-none text-right">3.112</p>
+            <CardContent className="px-4 py-6">
+              <p className="text-5xl font-semibold text-[#2D6BFF] text-right leading-none">3.112</p>
             </CardContent>
           </Card>
 
-          <Card className="shadow-card border border-[#E6EEFF] rounded-xl">
-            <CardHeader className="py-2.5 md:py-3 px-3 md:px-4">
-              <CardTitle className="text-[12px] md:text-[12px] font-medium text-slate-700">
+          <Card className="rounded-xl border border-[#E6EEFF] shadow-card">
+            <CardHeader className="py-3 px-4">
+              <CardTitle className="text-[12px] font-medium text-slate-700">
                 Jumlah Angkatan Aktif
               </CardTitle>
             </CardHeader>
-            <CardContent className="py-5 md:py-6 px-3 md:px-4">
-              <p className="text-4xl md:text-5xl font-semibold text-[#2D6BFF] leading-none text-right">45</p>
+            <CardContent className="px-4 py-6">
+              <p className="text-5xl font-semibold text-[#2D6BFF] text-right leading-none">45</p>
             </CardContent>
           </Card>
         </div>

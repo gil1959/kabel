@@ -20,7 +20,7 @@ type PublicItem = { href: string; label: string; hash?: `#${string}` }
 type PrivateItem = { href: `/${string}`; label: string }
 
 const navPrivate: PrivateItem[] = [
-  { href: "/dasbor", label: "Dasbor" },
+  { href: "/dasbor", label: "Beranda" },
   { href: "/berita", label: "Berita" },
   { href: "/forum", label: "Forum" },
   { href: "/kartu-alumni", label: "Kartu Alumni" },

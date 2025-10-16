@@ -45,14 +45,24 @@ export default function Hero() {
             </svg>
           </a>
         </div>
+        {/* Petir */}
 
-        {/* Right lightning + slogan */}
-        <div className="relative flex flex-col items-center justify-center">
-          {/* Petir */}
+        <div className="relative flex  items-center justify-center">
+
           <img
             src="Vector 332.png"
             alt="Petir Halilintar"
-            className="w-auto h-48 md:h-64 object-contain"
+            className="w-20 h-48 md:h-48 object-contain "
+          />
+          <img
+            src="Vector 332.png"
+            alt="Petir Halilintar"
+            className="w-auto h-48 md:h-64 object-contain "
+          />
+          <img
+            src="Vector 332.png"
+            alt="Petir Halilintar"
+            className="w-20 h-48 md:h-48 object-contain "
           />
 
           {/* Teks di tengah petir */}
@@ -60,6 +70,10 @@ export default function Hero() {
             GO HALILINTAR ELEKTRO !
           </h1>
         </div>
+
+
+
+
       </div>
     </section>
   );
