@@ -28,8 +28,8 @@ export default function Hero() {
               {/* Kanan: teks kiri (bukan kanan) */}
               <div className="relative flex items-center justify-start md:justify-start ml-20 w-[800px] ">
                 <p className="text-white font-bold text-sm sm:text-base md:text-2xl  leading-snug ">
-                  SELAMAT DATANG DI SISTEM <br></br>
-                  PENDATAAN ALUMNI BERBASIS WEBSITE
+                  SELAMAT DATANG DI KABELINK <br></br>
+                  KUATKAN KONEKSI WUJUDKAN KARYA
                 </p>
               </div>
             </div>
