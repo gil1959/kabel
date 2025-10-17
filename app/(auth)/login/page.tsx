@@ -111,22 +111,7 @@ export default function LoginPage() {
                 </label>
                 <a href="#" className="text-sm text-[#518CFF] hover:underline">Forgot Password?</a>
               </div>
-              <div className="grid grid-cols-2 gap-4 pt-2">
-                <Button
-                  type="button"
-                  variant="outline"
-                  className="h-10 px-5 flex items-center justify-center gap-2 rounded-lg border border-slate-300 bg-white hover:bg-slate-50 transition"
-                  aria-label="Login dengan Google"
-                >
-                  <img
-                    src="logogoogle.png"
-                    alt="Google"
-                    className="h-5 w-5 object-contain"
-                  />
-                  <span className="hidden sm:inline text-sm font-medium text-slate-700">
-                    Login with Google
-                  </span>
-                </Button>
+              <div className="flex justify-center">
 
                 <Button type="submit" className="h-10 rounded-lg bg-[#58A8FF] hover:bg-[#4b9dff] text-white shadow">
                   Login
