@@ -4,7 +4,7 @@ export default function AuthLayout({ children }: { children: React.ReactNode }) 
     return (
         <html lang="id">
             <body>
-                <AuthProvider> {/* ⬅️ supaya page login bisa pakai useAuth().login */}
+                <AuthProvider>
                     {children}
                 </AuthProvider>
             </body>

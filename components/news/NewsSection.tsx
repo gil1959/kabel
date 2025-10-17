@@ -12,8 +12,6 @@ const sideNews = [
 
 export default function NewsSection() {
   const { user } = useAuth()
-
-  // ⬇️ gate supaya server & client initial render sama persis
   const [mounted, setMounted] = useState(false)
   useEffect(() => setMounted(true), [])
 
@@ -23,8 +21,6 @@ export default function NewsSection() {
         <h2 className="text-[22px] md:text-[24px] font-semibold text-black mb-6">
           BERITA DAN INFORMASI
         </h2>
-
-        {/* Tambahkan konten — tampil hanya setelah mounted & user ada */}
         {mounted && user && (
           <div className="mb-8">
             <button
@@ -38,7 +34,6 @@ export default function NewsSection() {
         )}
 
         <div className="grid md:grid-cols-2 gap-12 items-start">
-          {/* LEFT */}
           <div>
             <img src="/image 361.png" alt="Sufmi Dasco Ahmad Dikukuhkan" className="w-full aspect-[16/9] object-cover" />
             <div className="mt-5 space-y-3 max-w-[90%]">
@@ -57,8 +52,6 @@ export default function NewsSection() {
               </Link>
             </div>
           </div>
-
-          {/* RIGHT */}
           <div className="flex flex-col justify-between h-full">
             <div className="space-y-6">
               {sideNews.map((news, i) => (
@@ -81,8 +74,6 @@ export default function NewsSection() {
           </div>
         </div>
       </div>
-
-      {/* Vectors */}
       <img src="/Vector269.png" alt="" aria-hidden className="pointer-events-none select-none absolute -bottom-px -left-px h-28 w-[260px] sm:w-[320px] md:w-[420px] lg:w-[520px] -z-0" />
       <img src="/Vector269.png" alt="" aria-hidden className="pointer-events-none select-none absolute -top-px -right-px h-28 w-[260px] sm:w-[320px] md:w-[420px] lg:w-[520px] rotate-180 transform-gpu -z-0" />
     </section>

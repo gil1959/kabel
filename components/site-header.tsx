@@ -121,13 +121,10 @@ export function SiteHeader() {
   return (
     <header className="sticky top-0 z-40 bg-white/90 backdrop-blur border-b border-border">
       <div className="mx-auto max-w-6xl px-4 md:pr-8 h-16 flex items-center">
-        {/* Logo */}
         <Link href="/" className="flex items-center gap-2">
           <img src="/logo1.png" alt="KABeL" className="h-8 w-auto" />
           <img src="/logo2.png" alt="KABeL" className="h-8 w-auto" />
         </Link>
-
-        {/* ✅ Desktop nav */}
         <div className="ml-auto hidden md:flex items-center gap-6">
           <nav className="flex gap-6 text-sm">
             {menu.map((n) => {
@@ -163,8 +160,6 @@ export function SiteHeader() {
             </Link>
           )}
         </div>
-
-        {/* ✅ Mobile nav */}
         <div className="ml-auto md:hidden">
           <Sheet open={mobileOpen} onOpenChange={setMobileOpen}>
             <SheetTrigger asChild>

@@ -1,16 +1,13 @@
 export default function Hero() {
   return (
     <section className="bg-white">
-      {/* Banner background */}
       <div className="relative overflow-hidden">
-        {/* ✅ background hero */}
         <img
           src="bghero.png"
           alt="Banner"
-          className="w-full object-cover h-[340px] md:h-[500px]" // mobile lebih pendek, desktop tetap 500px
+          className="w-full object-cover h-[340px] md:h-[500px]"
         />
 
-        {/* ✅ layer depan */}
         <div className="absolute inset-0 z-10 flex flex-col md:flex-row items-center justify-center gap-4 md:gap-10 mt-8 md:mt-16 px-4">
           <img
             src="Group 402.png"
@@ -23,10 +20,7 @@ export default function Hero() {
           </p>
         </div>
       </div>
-
-      {/* CONTENT STRIP UNDER BANNER */}
       <div className="mx-auto grid w-full max-w-6xl grid-cols-1 gap-8 px-4 sm:px-6 py-8 md:grid-cols-2 md:py-12">
-        {/* Left copy + CTA */}
         <div>
           <h2 className="text-lg md:text-2xl font-semibold text-slate-900">
             Platform tempat kita kembali terhubung, berbagi inspirasi, dan membuka peluang baru.
@@ -45,7 +39,6 @@ export default function Hero() {
             </svg>
           </a>
         </div>
-        {/* Petir */}
 
         <div className="relative flex  items-center justify-center">
 
@@ -65,15 +58,10 @@ export default function Hero() {
             className="w-20 h-48 md:h-48 object-contain "
           />
 
-          {/* Teks di tengah petir */}
           <h1 className="absolute text-center text-base md:text-2xl font-extrabold uppercase text-black bg-white px-2">
             GO HALILINTAR ELEKTRO !
           </h1>
         </div>
-
-
-
-
       </div>
     </section>
   );

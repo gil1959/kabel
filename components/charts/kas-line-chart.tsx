@@ -1,4 +1,3 @@
-// components/charts/kas-line-chart.tsx
 "use client"
 
 import {
@@ -27,7 +26,6 @@ const data = [
 ]
 
 export function KasLineChart() {
-  // WRAP WITH A DIV THAT HAS EXPLICIT HEIGHT!
   return (
     <div className="h-[220px] w-full rounded-md border border-[#E6ECF8] bg-white">
       <ResponsiveContainer width="100%" height="100%">

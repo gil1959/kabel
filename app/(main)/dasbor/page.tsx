@@ -17,10 +17,7 @@ const latest = [
 export default function DasborPage() {
   return (
     <div className="mx-auto max-w-6xl px-3 sm:px-4 py-6 md:py-10 space-y-5 md:space-y-6 flex flex-col">
-      {/* ROW 1: 2 charts */}
       <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6">
-
-        {/* Row 1 - Left: span 2 kolom */}
         <Card className="md:col-span-2 rounded-xl border border-[#E6EEFF] shadow-card">
           <CardHeader className="py-3 px-4">
             <CardTitle className="text-[12px] font-medium text-slate-700">
@@ -31,8 +28,6 @@ export default function DasborPage() {
             <MembersBarChart />
           </CardContent>
         </Card>
-
-        {/* Row 1 - Right */}
         <Card className="rounded-xl border border-[#E6EEFF] shadow-card">
           <CardHeader className="py-3 px-4">
             <CardTitle className="text-[12px] font-medium text-slate-700">
@@ -43,8 +38,6 @@ export default function DasborPage() {
             <MembersBarChart />
           </CardContent>
         </Card>
-
-        {/* Row 2 - Left: span 2 kolom (=> lebarnya PERSIS sama dgn kartu atas-kiri) */}
         <Card className="md:col-span-2 rounded-xl border border-[#E6EEFF] shadow-card">
           <CardHeader className="py-3 px-4">
             <CardTitle className="text-[12px] font-medium text-slate-700">
@@ -55,8 +48,6 @@ export default function DasborPage() {
             <MembersBarChart />
           </CardContent>
         </Card>
-
-        {/* Row 2 - Right: 2 kartu angka ditumpuk */}
         <div className="grid gap-4 md:gap-6">
           <Card className="rounded-xl border border-[#E6EEFF] shadow-card">
             <CardHeader className="py-3 px-4">
@@ -81,18 +72,13 @@ export default function DasborPage() {
           </Card>
         </div>
       </div>
-
-      {/* TABLE */}
       <Card className="shadow-card border border-[#E6EEFF] rounded-xl overflow-hidden">
         <div className="bg-[#E9EEFF] px-3 md:px-4 py-2.5 md:py-3 border-b border-[#E6EEFF]">
           <h3 className="text-[12.5px] md:text-[13px] font-medium text-slate-800">Terakhir Terdaftar</h3>
         </div>
-
         <CardContent className="p-0">
-          {/* ⬇️ Wrapper scroll untuk mobile/tablet */}
           <div className="-mx-4 px-4 md:mx-0 md:px-0 overflow-x-auto">
             <table className="w-full min-w-[720px] md:min-w-0 table-fixed text-[12.5px] md:text-[13px]">
-              {/* atur lebar kolom biar nggak mepet di HP */}
               <colgroup>
                 <col className="w-[40%] md:w-auto" />
                 <col className="w-[18%] md:w-auto" />
@@ -129,8 +115,6 @@ export default function DasborPage() {
               </tbody>
             </table>
           </div>
-
-          {/* footer / pagination */}
           <div className="flex flex-col md:flex-row items-center justify-between gap-3 px-3 md:px-4 py-3 border-t border-[#E9EDF8] bg-white">
             <p className="text-[12px] text-slate-500">
               Menampilkan 10 entri • Data fiktif

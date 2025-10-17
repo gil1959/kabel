@@ -1,4 +1,3 @@
-// ForumSection.tsx
 "use client"
 
 import { useEffect, useState } from "react"
@@ -36,8 +35,6 @@ function AskForm() {
             placeholder="Apa yang ingin Anda tanyakan?"
             className="w-full h-11 rounded-lg border border-[#D7DEEA] bg-white px-3 pr-10 text-[15px] placeholder:text-slate-500 focus:outline-none focus:ring-2 focus:ring-[#AFC8FF] sm:h-12 sm:px-4"
           />
-
-          {/* tombol upload gambar di kanan */}
           <label
             htmlFor="ask-image"
             className="absolute right-2 top-1/2 -translate-y-1/2 grid place-items-center h-8 w-8 rounded-md text-[#5B6B8C] hover:bg-slate-100 cursor-pointer"
@@ -73,16 +70,12 @@ function Question({
 }) {
   return (
     <article className="py-8 sm:py-10">
-      {/* Header judul */}
       <div className="flex items-start justify-between gap-3">
         <h3 className="text-2xl font-extrabold leading-snug text-brand sm:text-3xl md:text-4xl">
           {title}
         </h3>
       </div>
-
-      {/* Meta (stats + author) */}
       <div className="mt-3 flex flex-col-reverse items-start justify-between gap-3 sm:flex-row sm:items-center">
-        {/* stats header */}
         <div className="mt-1 w-full sm:w-auto">
           <p className="mt-1 flex flex-wrap items-center gap-x-5 gap-y-1 text-xs text-foreground/60 sm:text-[13px]">
             {stats.split(/·|\s{2,}/).map((item, i) => (
@@ -90,8 +83,6 @@ function Question({
             ))}
           </p>
         </div>
-
-        {/* author */}
         <div className="flex items-center gap-2 text-sm text-foreground/70">
           <img src={avatar} alt={author} className="h-8 w-8 rounded-full object-cover sm:h-9 sm:w-9" />
           <p className="whitespace-nowrap text-[13px] sm:text-sm">
@@ -99,8 +90,6 @@ function Question({
           </p>
         </div>
       </div>
-
-      {/* Bar "Jawaban (x)" */}
       <div className="mt-5">
         <div className="flex items-center justify-center rounded-lg bg-[#E9EEFF] py-2 text-xs font-medium text-foreground/70 sm:text-sm">
           <span className="flex items-center gap-1">
@@ -111,8 +100,6 @@ function Question({
           </span>
         </div>
       </div>
-
-      {/* List jawaban */}
       <div className="space-y-6 px-1 py-5 sm:space-y-8 sm:px-2">
         {answers.map((a, i) => (
           <div key={i} className={showReplies && i > 0 ? "md:pl-12" : ""}>
@@ -145,8 +132,6 @@ function Question({
           </div>
         ))}
       </div>
-
-      {/* separator gambar */}
       <img
         src="/Frame%20367.png"
         alt=""
@@ -162,11 +147,7 @@ export function ForumSection() {
     <section className="py-8 sm:py-10">
       <div className="mx-auto max-w-6xl px-4 sm:px-5 md:px-6">
         <h2 className="mb-6 text-lg font-semibold sm:text-xl md:text-2xl">FORUM ALUMNI</h2>
-
-        {/* Form tanya – hanya muncul saat user login */}
         <AskForm />
-
-        {/* Pertanyaan 1 */}
         <Question
           title="Bagaimana perjalanan karier Anda setelah lulus?"
           author="Naufal Kurnia (Angkatan 2020)"
@@ -190,8 +171,6 @@ export function ForumSection() {
             },
           ]}
         />
-
-        {/* Pertanyaan 2 */}
         <Question
           title="Bagaimana tips menghadapi wawancara kerja agar lebih percaya diri?"
           author="Elsa Tirana (Angkatan 2024)"
@@ -208,8 +187,6 @@ export function ForumSection() {
             },
           ]}
         />
-
-        {/* List pertanyaan singkat */}
         <div className="mt-10 space-y-3">
           <p className="text-sm font-medium">Pertanyaan</p>
           {[

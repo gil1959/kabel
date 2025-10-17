@@ -5,10 +5,8 @@ export default function OpportunitiesSection() {
         <section className=" py-12">
             <div className="max-w-7xl mx-auto px-6 lg:px-8">
                 <div className="grid gap-6 md:grid-cols-3">
-                    {/* Card 1 */}
                     <div className="rounded-xl bg-[#EAF1FF] border border-[#E6ECF5] shadow-[0_8px_22px_rgba(0,0,0,0.06)] p-6 text-center">
                         <div className="mx-auto mb-4 grid place-items-center h-14 w-14 rounded-full bg-[#E9F1FF]">
-                            {/* briefcase */}
                             <svg width="28" height="28" viewBox="0 0 24 24" fill="none" className="text-[#518CFF]">
                                 <path d="M9 7V6a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2v1" stroke="currentColor" strokeWidth="1.8" />
                                 <rect x="3" y="7" width="18" height="13" rx="2.5" stroke="currentColor" strokeWidth="1.8" />
@@ -21,10 +19,8 @@ export default function OpportunitiesSection() {
                         </p>
                     </div>
 
-                    {/* Card 2 */}
                     <div className="rounded-xl bg-[#EAF1FF] border border-[#E6ECF5] shadow-[0_8px_22px_rgba(0,0,0,0.06)] p-6 text-center">
                         <div className="mx-auto mb-4 grid place-items-center h-14 w-14 rounded-full bg-[#E9F1FF]">
-                            {/* users */}
                             <svg width="28" height="28" viewBox="0 0 24 24" fill="none" className="text-[#518CFF]">
                                 <path d="M16 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" stroke="currentColor" strokeWidth="1.8" />
                                 <circle cx="10" cy="7" r="3.5" stroke="currentColor" strokeWidth="1.8" />
@@ -38,10 +34,9 @@ export default function OpportunitiesSection() {
                         </p>
                     </div>
 
-                    {/* Card 3 */}
                     <div className="rounded-xl bg-[#EAF1FF] border border-[#E6ECF5] shadow-[0_8px_22px_rgba(0,0,0,0.06)] p-6 text-center">
                         <div className="mx-auto mb-4 grid place-items-center h-14 w-14 rounded-full bg-[#E9F1FF]">
-                            {/* badge */}
+
                             <svg width="28" height="28" viewBox="0 0 24 24" fill="none" className="text-[#518CFF]">
                                 <path d="M12 17l-3.5 2 1-3.9L6 11.5l4.1-.35L12 7.5l1.9 3.65 4.1.35-3.5 3.6 1 3.9L12 17z"
                                     stroke="currentColor" strokeWidth="1.8" fill="none" />

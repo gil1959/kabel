@@ -1,4 +1,3 @@
-// app/profil/page.tsx
 "use client"
 
 import { Card, CardContent } from "@/components/ui/card"
@@ -14,7 +13,6 @@ export default function ProfilPage() {
   const router = useRouter()
   const { logout } = useAuth()
 
-  // simpan/restore (optional)
   useEffect(() => {
     const saved = localStorage.getItem("kabel_avatar")
     if (saved) setAvatarUrl(saved)
@@ -46,22 +44,17 @@ export default function ProfilPage() {
 
   return (
     <section className="bg-[#EAF2FF] ">
-      {/* ⬇️ Mobile/tablet: stack kolom; Desktop: tetap seperti semula */}
       <div className="mx-auto max-w-6xl px-3 sm:px-4 py-8 md:py-10 justify-center gap-4 md:gap-6 flex flex-col md:flex-row md:grid-cols-[280px,1fr]">
-        {/* ==== Sidebar ==== */}
         <aside className="md:mr-0">
           <Card className="rounded-xl border-0 bg-white shadow-[0_8px_24px_rgba(16,24,40,0.04)]">
             <CardContent className="p-0">
-              {/* ⬇️ Padding & font lebih rapat di mobile, desktop tetap */}
               <nav className="text-[14px] sm:text-[15px] p-4 sm:p-5 py-6 sm:py-[35px]">
-                {/* Profil */}
+
                 <div className="px-3 sm:px-5 py-3 sm:py-4 font-medium text-[#0F172A]">Profil</div>
                 <ul className="px-1 sm:px-2">
                   <SidebarItem icon={IconUser} label="Edit Profil" />
                   <SidebarItem icon={IconBell} label="Notifikasi" />
                 </ul>
-
-                {/* Bantuan & Dukungan */}
                 <div className="px-3 sm:px-5 pt-3 sm:pt-4 pb-2 sm:pb-3 font-medium text-[#0F172A]">
                   Bantuan & Dukungan
                 </div>
@@ -69,8 +62,6 @@ export default function ProfilPage() {
                   <SidebarItem icon={IconWallet} label="Pembayaran Kas" />
                   <SidebarItem icon={IconReceipt} label="Transaksi" />
                 </ul>
-
-                {/* Pengaturan & Privasi */}
                 <div className="px-3 sm:px-5 pt-3 sm:pt-4 pb-2 sm:pb-3 font-medium text-[#0F172A]">
                   Pengaturan & Privasi
                 </div>
@@ -79,8 +70,6 @@ export default function ProfilPage() {
                   <SidebarItem icon={IconLock} label="Ubah Password" />
                   <SidebarItem icon={IconBell} label="Notifikasi" />
                 </ul>
-
-                {/* Keluar */}
                 <ul className="px-1 sm:px-2 pb-4">
                   <SidebarItem
                     icon={IconLogout}
@@ -93,15 +82,10 @@ export default function ProfilPage() {
           </Card>
         </aside>
 
-        {/* ==== Main ==== */}
         <div className="flex flex-col">
-          {/* Header profil */}
           <Card className="rounded-xl bg-[#EAF2FF] border-0 shadow-none">
-            {/* ⬇️ Tambah padding di mobile; desktop tetap md:p-6 */}
             <CardContent className="p-4 md:p-6">
-              {/* ⬇️ Mobile: kolom; Tablet/Desktop: row, sama seperti punyamu */}
               <div className="flex flex-col sm:flex-row gap-4 sm:gap-5 md:items-start">
-                {/* Avatar */}
                 <div className="flex items-center gap-4">
                   <img
                     src={avatarUrl}
@@ -109,8 +93,6 @@ export default function ProfilPage() {
                     className="rounded-full bg-[#CDDEFF] object-cover h-24 w-24 md:h-30 md:w-30"
                   />
                 </div>
-
-                {/* Upload + hint */}
                 <div className="flex flex-col gap-3 justify-center">
                   <div>
                     <input
@@ -131,7 +113,6 @@ export default function ProfilPage() {
                       Upload Foto
                     </Button>
                   </div>
-                  {/* ⬇️ Ukuran teks sedikit dikecilkan di mobile */}
                   <p className="text-[13px] md:text-sm leading-relaxed text-[#64748B]">
                     Foto profil dan avatar dapat dilihat oleh semua orang di dalam platform
                   </p>
@@ -140,12 +121,9 @@ export default function ProfilPage() {
             </CardContent>
           </Card>
 
-          {/* Info personal */}
           <Card className="mt-4 md:mt-0 rounded-xl border-0 bg-white shadow-[0_8px_24px_rgba(16,24,40,0.04)]">
             <CardContent className="p-4 md:p-6">
               <h3 className="mb-4 text-[15px] md:text-base font-semibold text-[#0F172A]">Info Personal</h3>
-
-              {/* ⬇️ Mobile: 1 kolom; Desktop: tetap 2 kolom */}
               <div className="grid gap-y-4 gap-x-6 sm:gap-y-5 sm:gap-x-8 md:grid-cols-2">
                 <Field label="Nama Lengkap" value="Randy Dwi Pranaputra" />
                 <Field label="Angkatan" value="2005" />
@@ -166,8 +144,6 @@ export default function ProfilPage() {
           </Card>
         </div>
       </div>
-
-      {/* Modal konfirmasi keluar */}
       {openLogout && (
         <div role="dialog" aria-modal="true" className="fixed inset-0 z-50 grid place-items-center bg-black/40 p-4">
           <div className="w-full max-w-sm rounded-xl bg-white p-5 md:p-6 shadow-lg">
@@ -190,8 +166,6 @@ export default function ProfilPage() {
   )
 }
 
-/* ---------- kecil-kecil yang rapi ---------- */
-
 function SidebarItem({
   icon: Icon,
   label,
@@ -203,7 +177,6 @@ function SidebarItem({
 }) {
   return (
     <li>
-      {/* ⬇️ Mobile font sedikit lebih kecil; desktop tetap */}
       <button
         type="button"
         onClick={onClick}
@@ -224,9 +197,6 @@ function Field({ label, value }: { label: string; value: string }) {
     </div>
   )
 }
-
-/* ---------- Ikon SVG ringan (inline) ---------- */
-
 function IconUser(props: React.SVGProps<SVGSVGElement>) {
   return (
     <svg viewBox="0 0 24 24" fill="none" {...props}>

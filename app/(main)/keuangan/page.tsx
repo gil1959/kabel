@@ -1,4 +1,3 @@
-// app/keuangan/page.tsx
 "use client"
 
 import { useState } from "react"
@@ -42,16 +41,11 @@ export default function KeuanganPage() {
         <h1 className="text-[16px] sm:text-[18px] md:text-[20px] font-semibold tracking-tight text-[#0F172A]">
           LAPORAN KEUANGAN
         </h1>
-
-        {/* ====== KARTU REKAP ====== */}
         <div className="rounded-xl overflow-hidden bg-white shadow-[0_6px_22px_rgba(0,0,0,0.06)]">
           <div className="bg-white px-3 md:px-4 py-2.5 md:py-3 text-[12.5px] md:text-[13px] font-medium text-[#0F172A] border-b border-[#E6ECF8]">
             Laporan Keuangan
           </div>
-
-          {/* table */}
           <div className="p-0">
-            {/* wrapper scroll hanya mobile/tablet */}
             <div className="-mx-3 px-3 md:mx-0 md:px-0 overflow-x-auto">
               <table className="w-full min-w-[680px] md:min-w-0 text-[12.5px] md:text-[13px]">
                 <thead>
@@ -73,15 +67,11 @@ export default function KeuanganPage() {
                       </td>
                     </tr>
                   ))}
-
-                  {/* jumlah */}
                   <tr className="bg-white font-semibold">
                     <td className="px-4 md:px-5 py-2.5 md:py-3 border-b border-[#E9EEF6]">Jumlah</td>
                     <td className="px-4 md:px-5 py-2.5 md:py-3 border-b border-[#E9EEF6]">{fmt(pemasukanTotal)}</td>
                     <td className="px-4 md:px-5 py-2.5 md:py-3 border-b border-[#E9EEF6]">{fmt(pengeluaranTotal)}</td>
                   </tr>
-
-                  {/* sisa saldo */}
                   <tr className="bg-white font-semibold">
                     <td className="px-4 md:px-5 py-2.5 md:py-3 border-b border-[#E9EEF6]">Sisa Saldo</td>
                     <td className="px-4 md:px-5 py-2.5 md:py-3 border-b border-[#E9EEF6] text-[#0BA95B]">
@@ -93,8 +83,6 @@ export default function KeuanganPage() {
               </table>
             </div>
           </div>
-
-          {/* footer/pagination bar */}
           <div className="flex flex-col md:flex-row items-center md:items-center justify-between gap-3 px-3 md:px-4 py-3 text-[11.5px] md:text-[11px] text-[#6B7280] border-t border-[#E6ECF8]">
             <span>Menampilkan 1 sampai 10 dari 200 hasil</span>
 
@@ -124,8 +112,6 @@ export default function KeuanganPage() {
             </div>
           </div>
         </div>
-
-        {/* ====== KARTU GRAFIK ====== */}
         <div className="rounded-xl overflow-hidden bg-white shadow-[0_6px_22px_rgba(0,0,0,0.06)]">
           <div className="flex items-center justify-between border-b border-[#E6ECF8] px-3 md:px-4 py-2.5">
             <div className="text-[12.5px] md:text-[13px] font-medium text-[#0F172A]">Bulan</div>
@@ -157,8 +143,6 @@ export default function KeuanganPage() {
             </div>
           </div>
         </div>
-
-        {/* ====== KARTU ARUS KAS ====== */}
         <div className="rounded-xl overflow-hidden bg-white shadow-[0_6px_22px_rgba(0,0,0,0.06)]">
           <div className="bg-white px-3 md:px-4 py-2.5 md:py-3 text-[12.5px] md:text-[13px] font-medium text-[#0F172A] border-b border-[#E6ECF8]">
             Arus Kas
@@ -194,8 +178,6 @@ export default function KeuanganPage() {
               </table>
             </div>
           </div>
-
-          {/* footer/pagination bar */}
           <div className="flex flex-col md:flex-row items-center justify-between gap-3 px-3 md:px-4 py-3 text-[11.5px] md:text-[11px] text-[#6B7280] border-t border-[#E6ECF8]">
             <span>Menampilkan 1 sampai 10 dari 200 hasil</span>
             <div className="flex items-center gap-2">

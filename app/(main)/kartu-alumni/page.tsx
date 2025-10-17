@@ -1,4 +1,3 @@
-// app/kartu-alumni/page.tsx
 "use client"
 
 import { Button } from "@/components/ui/button"
@@ -6,14 +5,12 @@ import { Button } from "@/components/ui/button"
 export default function KartuAlumniPage() {
   return (
     <section className="relative bg-[#EAF1FF]">
-      {/* dekorasi sudut */}
       <img
         src="/Vector269.png"
         alt=""
         aria-hidden
         className="pointer-events-none select-none absolute -bottom-px -left-px z-10 h-28 w-[520px] hidden md:block"
       />
-
       <img
         src="/Vector269.png"
         alt=""
@@ -23,13 +20,8 @@ export default function KartuAlumniPage() {
       <div className="relative min-h-screen w-full overflow-hidden justify-center bg-[#EAF2FF] flex flex-col gap-24">
         <div className="flex items-center ml-36 gap-4 sm:ml-0">
           <h1 className="text-[22px] md:text-2xl font-semibold text-[#0F172A]">Kartu Alumni</h1>
-
-
         </div>
-
-        {/* area preview */}
         <div className=" flex flex-wrap items-start gap-10 justify-center ">
-          {/* KARTU DEPAN */}
           <div className="rounded-xl">
             <div
               className="
@@ -40,17 +32,13 @@ export default function KartuAlumniPage() {
               <img
                 src="/bg1.jpg"
                 alt="Background kartu depan"
-                className="absolute -inset-[3px]              /* bleed lebih lebar: 3px di semua sisi */
-    w-[calc(100%+6px)] h-[calc(100%+6px)]
-    object-cover block select-none
-    transform-gpu will-change-transform scale-[1.01]"
+                className="absolute -inset-[3px]             
+                  w-[calc(100%+6px)] h-[calc(100%+6px)]
+                  object-cover block select-none
+                  transform-gpu will-change-transform scale-[1.01]"
                 draggable={false}
               />
 
-              {/* --- JANGAN pakai overlay putih kalau mau full --- */}
-              {/* <div className="absolute inset-0 bg-white/14" /> */}
-
-              {/* konten kartu */}
               <div className="relative h-full flex flex-col justify-center gap-5">
                 <div className="flex items-center gap-10 justify-center">
                   <img src="/logo2.png" alt="" className="h-6 w-auto object-contain" />
@@ -79,16 +67,14 @@ export default function KartuAlumniPage() {
               </div>
             </div>
           </div>
-
-          {/* KARTU BELAKANG */}
           <div className="rounded-xl">
             <div
               className="
-      relative w-[250px] sm:w-[260px] md:w-[280px] aspect-[7/11]
-      rounded-[14px] overflow-hidden
-      bg-transparent
-      shadow-[0_10px_30px_rgba(0,0,0,0.06)]
-    "
+                relative w-[250px] sm:w-[260px] md:w-[280px] aspect-[7/11]
+                rounded-[14px] overflow-hidden
+                bg-transparent
+                shadow-[0_10px_30px_rgba(0,0,0,0.06)]
+                "
             >
               <img
                 src="/bg2.jpg"
@@ -97,7 +83,6 @@ export default function KartuAlumniPage() {
              object-cover block transform-gpu will-change-transform scale-[1.01]"
                 draggable={false}
               />
-              {/* jangan pakai border/overlay putih */}
             </div>
           </div>
           <Button

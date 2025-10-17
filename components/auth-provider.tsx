@@ -14,8 +14,6 @@ const AuthContext = createContext<AuthContextType | undefined>(undefined)
 
 export function AuthProvider({ children }: { children: React.ReactNode }) {
     const [user, setUser] = useState<User>(null)
-
-    // sinkronisasi dengan localStorage
     useEffect(() => {
         const raw = localStorage.getItem("kabel_auth_user")
         if (raw) {
@@ -28,7 +26,6 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
     }, [])
 
     const login = async (email: string, password: string) => {
-        // ---- DUMMY CREDENTIAL ----
         // email: bodro@example.com
         // password: 123456
         if (email === "bodro@example.com" && password === "123456") {
